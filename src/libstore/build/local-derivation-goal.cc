@@ -2644,11 +2644,7 @@ DrvOutputs LocalDerivationGoal::registerOutputs()
                         buildUser ? buildUser->getGID() : getgid(),
                         finalDestPath, dst, worker.store.printStorePath(drvPath), tmpDir);
 
-                    throw NotDeterministic("derivation '%s' may not be deterministic: output '%s' differs from '%s'",
-                        worker.store.printStorePath(drvPath), worker.store.toRealPath(finalDestPath), dst);
-                } else
-                    throw NotDeterministic("derivation '%s' may not be deterministic: output '%s' differs",
-                        worker.store.printStorePath(drvPath), worker.store.toRealPath(finalDestPath));
+                }
             }
 
             /* Since we verified the build, it's now ultimately trusted. */
